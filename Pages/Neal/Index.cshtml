@@ -1,0 +1,156 @@
+﻿@page
+@model FrisbeeGolfCourseMap.Pages.Neal.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: rgb(108,159,180);
+            background: linear-gradient(180deg, rgba(108,159,180,0.5943511193539917) 5%, rgba(129,138,140,0.8744631641719187) 100%);
+        }
+
+        table {
+            /*border: solid black 2px;*/
+            box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+
+        tr {
+            background-color: #F4F4F4;
+            /*border-top: solid black 2px;*/
+            border-bottom: solid black 2px;
+        }
+
+            tr:last-child {
+                border: none;
+            }
+
+        th {
+            border: none;
+            background-color: #dddeda;
+        }
+
+        a {
+            color: black;
+        }
+
+        .controls{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        .createButton{
+            flex: 4;
+            align-items: center;
+        }
+        button {
+            border: solid black 2px;
+            border-radius: 5px;
+            background-color: #ABD996;
+            margin-left: 5px;
+        }
+        form{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        input {
+            background-color: #F4F4F4;
+            border: solid black 2px;
+            border-radius: 5px;
+            width: 175px;
+            margin-right: 5px;
+        }
+            input[type=submit] {
+                background-color: #94AFF2;
+                border: solid black 2px;
+                border-radius: 5px;
+                width: max-content;
+            }
+        .sortButtons {
+            background-color: #94AFF2;
+            border: solid black 2px;
+            border-radius: 5px;
+            width: max-content;
+            padding: 0px 4px 0px 4px;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="color: black;">Disc Golf Courses</h1>
+
+    @*<p>
+            <a asp-page="Create">Create New</a>
+        </p>*@
+    <div class="controls">
+        <div class="createButton">
+            <button>
+                <a asp-page="Create">Create New</a>
+            </button>
+        </div>
+
+        <form>
+            <a class="sortButtons" asp-page="./Index" asp-route-sortOrder="desc">
+                Sort By Name (desc.)
+            </a>
+            <a class="sortButtons" asp-page="./Index" asp-route-sortOrder="asc">
+                Sort By Name (asc.)
+            </a>
+            <input type="text" asp-for="SearchString" />
+            <input type="submit" value="Search" />
+        </form>
+    </div>
+  
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Course[0].Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Course[0].Location)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Course[0].Difficulty)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Course[0].NumberOfHoles)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Course)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Location)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Difficulty)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NumberOfHoles)
+                    </td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                        <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>

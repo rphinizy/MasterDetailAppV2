@@ -1,0 +1,77 @@
+﻿@page
+@model FrisbeeGolfCourseMap.Pages.Neal.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: rgb(108,159,180);
+            background: linear-gradient(180deg, rgba(108,159,180,0.5943511193539917) 5%, rgba(129,138,140,0.8744631641719187) 100%);
+        }
+    </style>
+</head>
+<body>
+    <div class="jumbotron shadow" style="background-color: #F4F4F4; border-radius: 25px;">
+        <h3>Course Details</h3>
+        <hr style="color: #1e1f22; height: 1px; background-color: #1e1f22 "/>
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Course.Name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Course.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Course.Alias)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Course.Alias)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Course.Location)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Course.Location)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Course.Difficulty)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Course.Difficulty)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Course.NumberOfHoles)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Course.NumberOfHoles)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Course.TimeToComplete)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Course.TimeToComplete) hrs
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Course.ThrowTotal)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Course.ThrowTotal)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Course.Description)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Course.Description)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-page="./Edit" asp-route-id="@Model.Course.ID">Edit</a> |
+        <a asp-page="./Index">Back to List</a>
+    </div>
+</body>

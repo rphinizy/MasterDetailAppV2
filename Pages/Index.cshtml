@@ -1,0 +1,30 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<head>
+    <style>
+        body {
+            background-image: url('images/background.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+        #description {
+            background-color: #dddeda;
+            box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 10px;
+            color: black;
+            padding: 20px;
+            text-shadow: 2px 5px 10px black;
+        }
+    </style>
+</head>
+<body>
+    <div class="text-center" id="description">
+        <h1 class="display-4" >Welcome</h1>
+        <p>The purpose of this application is to allow users to keep track of disc golf courses, along with various information about them. From the home view, users will see a list of courses. Users will be able to search through this list, as well as sort by course properties. From the list, users can view course details, edit course properties, and delete a course. </p>
+    </div>
+</body>
+
