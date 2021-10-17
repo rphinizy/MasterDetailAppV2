@@ -18,7 +18,7 @@
 <body>
     <div class="jumbotron shadow" style="background-color: #F4F4F4; border-radius: 25px;">
         <h3>Course Details</h3>
-        <hr style="color: #1e1f22; height: 1px; background-color: #1e1f22 "/>
+        <hr style="color: #1e1f22; height: 1px; background-color: #1e1f22 " />
         <dl class="row">
             <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.Course.Name)
@@ -69,9 +69,10 @@
                 @Html.DisplayFor(model => model.Course.Description)
             </dd>
         </dl>
+        <div>
+            <a asp-page="./Edit" asp-route-id="@Model.Course.ID">Edit</a> |
+            <a asp-page="./Index">Back to List</a>
+        </div>
     </div>
-    <div>
-        <a asp-page="./Edit" asp-route-id="@Model.Course.ID">Edit</a> |
-        <a asp-page="./Index">Back to List</a>
-    </div>
+
 </body>
