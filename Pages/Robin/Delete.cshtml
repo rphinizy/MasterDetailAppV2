@@ -4,11 +4,12 @@
 @{
     ViewData["Title"] = "Delete";
 }
-
-<h1>Delete</h1>
+<body style="background-color: darkorange;">
+</body>
+<h1 style="color:white; font-weight:bolder; font-size:36px;">Delete</h1>
 
 <h3>Are you sure you want to delete this?</h3>
-<div>
+<div class="flex-container" style="background-color: darksalmon; border-radius: 26px 26px 26px 26px; padding: 15px 15px 15px 15px; box-shadow: 2px 2px 10px black ">
     <h4>Course</h4>
     <hr />
     <dl class="row">
@@ -61,7 +62,7 @@
             @Html.DisplayFor(model => model.Course.Description)
         </dd>
     </dl>
-    
+
     <form method="post">
         <input type="hidden" asp-for="Course.ID" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
